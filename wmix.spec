@@ -12,7 +12,6 @@ Source0: %{name}-%{version}.tar.bz2
 Source1: %{name}-icons.tar.bz2
 URL: http://dockapps.org/file.php/id/58
 BuildRequires: X11-devel
-BuildRoot: %{_tmppath}/%{name}-buildroot
 
 %description
 * This is a complete dockapp mixer utilizing the OSS mixer API
