@@ -44,16 +44,6 @@ install -m 755 %{name} $RPM_BUILD_ROOT%{_usr}/bin/
 mkdir -p $RPM_BUILD_ROOT%{_mandir}/man1
 gunzip -c wmix.1x.gz | bzip2 -9 -c - > $RPM_BUILD_ROOT%{_mandir}/man1/wmix.1.bz2
 
-install -m 755 -d $RPM_BUILD_ROOT%{_menudir}
-cat > $RPM_BUILD_ROOT%{_menudir}/%{name} <<EOF
-?package(%{name}): needs="x11" \
-        section="Multimedia/Sound" \
-        title="Wmix (OSS)" \
-        longtitle="Dockapp OSS sound mixer" \
-        command="%{_bindir}/%{name}" \
-        icon="%{name}.xpm" \
-        xdg="true"
-EOF
 
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
 cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
@@ -84,6 +74,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_liconsdir}/%{name}.xpm
 %{_miconsdir}/%{name}.xpm
 %{_iconsdir}/%{name}.xpm
-%{_menudir}/%{name}
 %{_usr}/share/applications/mandriva-%{name}.desktop
 
