@@ -1,5 +1,5 @@
 %define version 3.2
-%define release %mkrel 3
+%define release %mkrel 4
 %define name wmix
 
 Summary: Dockapp OSS sound mixer
