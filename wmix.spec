@@ -1,5 +1,5 @@
 %define version 3.2
-%define release %mkrel 5
+%define release %mkrel 6
 %define name wmix
 
 Summary: Dockapp OSS sound mixer
@@ -11,7 +11,9 @@ Group: Sound
 Source0: %{name}-%{version}.tar.bz2
 Source1: %{name}-icons.tar.bz2
 URL: http://dockapps.org/file.php/id/58
-BuildRequires: X11-devel
+BuildRequires: libx11-devel
+BuildRequires: libxext-devel
+BuildRequires: libxpm-devel
 BuildRoot: %{_tmppath}/%{name}-buildroot
 
 %description
@@ -26,7 +28,7 @@ BuildRoot: %{_tmppath}/%{name}-buildroot
 %setup -q -n %{name}-%{version}
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" make
+make CFLAGS="%optflags" LDFLAGS="%ldflags"
 
 %install
 [ -d $RPM_BUILD_ROOT ] && rm -rf $RPM_BUILD_ROOT
