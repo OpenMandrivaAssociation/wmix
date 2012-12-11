@@ -82,3 +82,51 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/%{name}.xpm
 %{_usr}/share/applications/mandriva-%{name}.desktop
 
+
+
+%changelog
+* Tue Feb 01 2011 Funda Wang <fwang@mandriva.org> 3.2-6mdv2011.0
++ Revision: 634817
+- simplify BR
+
+* Wed Sep 09 2009 Thierry Vignaud <tv@mandriva.org> 3.2-5mdv2010.0
++ Revision: 434860
+- rebuild
+
+* Sun Aug 03 2008 Thierry Vignaud <tv@mandriva.org> 3.2-4mdv2009.0
++ Revision: 262055
+- rebuild
+
+* Wed Jul 30 2008 Thierry Vignaud <tv@mandriva.org> 3.2-3mdv2009.0
++ Revision: 256186
+- rebuild
+- drop old menu
+
+  + Pixel <pixel@mandriva.com>
+    - rpm filetriggers deprecates update_menus/update_scrollkeeper/update_mime_database/update_icon_cache/update_desktop_database/post_install_gconf_schemas
+
+* Thu Jan 03 2008 Olivier Blin <oblin@mandriva.com> 3.2-1mdv2008.1
++ Revision: 140932
+- restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+    - import wmix
+
+
+* Thu Jul 18 2006 Franck Villaume <fvill@mandriva.org> 3.2-1mdv2007.0
+- new version
+- xdg menu
+
+* Mon Apr 11 2005 Franck Villaume <fvill@mandrake.org> 3.1-1mdk
+- new version
+
+* Thu Jun 12 2003 Marcel Pol <mpol@gmx.net> 3.0-2mdk
+- rebuild for rpm 4.2
+
+* Fri Jun 08 2001 HA Quôc-Viêt <viet@mandrakesoft.com> 3.0-1mdk
+- updated to revision 3.0
+- fixed owner of %%{_mandir}/man1/*
+
+* Thu May 31 2001 HA Quôc-Viêt <viet@mandrakesoft.com> 2.20-1mdk
+- Initial release.
