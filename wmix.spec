@@ -1,5 +1,5 @@
 %define version 3.2
-%define release %mkrel 6
+%define release  7
 %define name wmix
 
 Summary: Dockapp OSS sound mixer
@@ -14,7 +14,6 @@ URL: http://dockapps.org/file.php/id/58
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(xext)
 BuildRequires: pkgconfig(xpm)
-BuildRoot: %{_tmppath}/%{name}-buildroot
 
 %description
 * This is a complete dockapp mixer utilizing the OSS mixer API
