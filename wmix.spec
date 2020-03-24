@@ -35,50 +35,15 @@ Recommends:      ossp
 %prep
 %setup -q -n %{name}-%{version}
 
-%build
-make CFLAGS="%optflags" LDFLAGS="%ldflags"
+%bbuild
+autoreconf --force --install
+%configure
+%make_build CFLAGS="%optflags" LDFLAGS="%ldflags"
+
 
 %install
-[ -d $RPM_BUILD_ROOT ] && rm -rf $RPM_BUILD_ROOT
-
-install -m 755 -d $RPM_BUILD_ROOT%{_miconsdir}
-install -m 755 -d $RPM_BUILD_ROOT%{_iconsdir}
-install -m 755 -d $RPM_BUILD_ROOT%{_liconsdir}
-tar xOjf %SOURCE1 %{name}-16x16.xpm > $RPM_BUILD_ROOT%{_miconsdir}/%{name}.xpm
-tar xOjf %SOURCE1 %{name}-32x32.xpm > $RPM_BUILD_ROOT%{_iconsdir}/%{name}.xpm
-tar xOjf %SOURCE1 %{name}-48x48.xpm > $RPM_BUILD_ROOT%{_liconsdir}/%{name}.xpm
-
-mkdir -p $RPM_BUILD_ROOT%{_usr}/bin/
-install -m 755 %{name} $RPM_BUILD_ROOT%{_usr}/bin/
-
-mkdir -p $RPM_BUILD_ROOT%{_mandir}/man1
-gunzip -c wmix.1x.gz | bzip2 -9 -c - > $RPM_BUILD_ROOT%{_mandir}/man1/wmix.1.bz2
-
-
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
-cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
-[Desktop Entry]
-Name=WMix
-Comment=%{summary}
-Exec=%{_bindir}/%{name}
-Icon=%{name}
-Terminal=false
-Type=Application
-Categories=X-MandrivaLinux-Multimedia-Sound;Audio / Midi / Mixer / Sequencer / Tuner / Audio;
-EOF
-
-%clean
-rm -rf $RPM_BUILD_ROOT
-
-%if %mdkversion < 200900
-%post
-%update_menus
-%endif
-
-%if %mdkversion < 200900
-%postun
-%clean_menus
-%endif
+%make_install
+install -D -m 644 sample.wmixrc %{buildroot}%{_datadir}/%{name}/sample.wmixrc
 
 %files
 %defattr (-,root,root)
