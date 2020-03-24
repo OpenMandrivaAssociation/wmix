@@ -1,5 +1,5 @@
-%define version 3.2
-%define release  8
+%define version 3.4
+%define release  1
 %define name wmix
 
 Summary: Dockapp OSS sound mixer
@@ -8,12 +8,21 @@ Version: %{version}
 Release: %{release}
 License: GPL
 Group: Sound
-Source0: %{name}-%{version}.tar.bz2
+# New release tagged but source archive not released. So, we download tagged git and create archive by hand:
+# Source taken from here: https://repo.or.cz/dockapps.git
+Source0: %{name}-%{version}.tar.lzma
 Source1: %{name}-icons.tar.bz2
 URL: http://dockapps.org/file.php/id/58
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(xext)
 BuildRequires: pkgconfig(xpm)
+BuildRequires: glibc-devel
+BuildRequires: pkgconfig(xrandr)
+BuildRequires: pkgconfig(alsa)
+
+Recommends:      alsa-oss
+Recommends:      ossp 
+
 
 %description
 * This is a complete dockapp mixer utilizing the OSS mixer API
@@ -123,9 +132,9 @@ rm -rf $RPM_BUILD_ROOT
 * Thu Jun 12 2003 Marcel Pol <mpol@gmx.net> 3.0-2mdk
 - rebuild for rpm 4.2
 
-* Fri Jun 08 2001 HA Quôc-Viêt <viet@mandrakesoft.com> 3.0-1mdk
+* Fri Jun 08 2001 HA QuÃ´c-ViÃªt <viet@mandrakesoft.com> 3.0-1mdk
 - updated to revision 3.0
 - fixed owner of %%{_mandir}/man1/*
 
-* Thu May 31 2001 HA Quôc-Viêt <viet@mandrakesoft.com> 2.20-1mdk
+* Thu May 31 2001 HA QuÃ´c-ViÃªt <viet@mandrakesoft.com> 2.20-1mdk
 - Initial release.
