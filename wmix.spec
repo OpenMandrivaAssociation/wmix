@@ -35,7 +35,7 @@ Recommends:      ossp
 %prep
 %setup -q -n %{name}-%{version}
 
-%bbuild
+%build
 autoreconf --force --install
 %configure
 %make_build CFLAGS="%optflags" LDFLAGS="%ldflags"
