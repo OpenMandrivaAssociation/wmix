@@ -46,14 +46,12 @@ autoreconf --force --install
 install -D -m 644 sample.wmixrc %{buildroot}%{_datadir}/%{name}/sample.wmixrc
 
 %files
-%defattr (-,root,root)
-%doc AUTHORS README BUGS NEWS
+%doc AUTHORS BUGS NEWS README 
 %{_bindir}/%{name}
-%attr(644,root,man) %{_mandir}/man1/*
-%{_liconsdir}/%{name}.xpm
-%{_miconsdir}/%{name}.xpm
-%{_iconsdir}/%{name}.xpm
-%{_usr}/share/applications/mandriva-%{name}.desktop
+%dir %{_datadir}/%{name}
+%{_datadir}/%{name}/sample.wmixrc
+%{_datadir}/applications/*.desktop
+%{_mandir}/man1/%{name}.1*
 
 
 
