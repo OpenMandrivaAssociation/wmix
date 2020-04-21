@@ -1,4 +1,4 @@
-%define version 3.4
+%define version 3.5
 %define release  1
 %define name wmix
 
@@ -23,7 +23,6 @@ BuildRequires: pkgconfig(alsa)
 Recommends:      alsa-oss
 Recommends:      ossp 
 
-
 %description
 * This is a complete dockapp mixer utilizing the OSS mixer API
 * Has a nice On-Screen-Display to visualize current volume levels
@@ -39,7 +38,6 @@ Recommends:      ossp
 autoreconf --force --install
 %configure
 %make_build CFLAGS="%optflags" LDFLAGS="%ldflags"
-
 
 %install
 %make_install
