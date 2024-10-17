@@ -12,7 +12,7 @@ Group: Sound
 # Source taken from here: https://repo.or.cz/dockapps.git
 Source0: %{name}-%{version}.tar.lzma
 Source1: %{name}-icons.tar.bz2
-URL: http://dockapps.org/file.php/id/58
+URL: https://dockapps.org/file.php/id/58
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(xext)
 BuildRequires: pkgconfig(xpm)
