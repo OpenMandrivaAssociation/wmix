@@ -13,6 +13,11 @@ Group: Sound
 Source0: %{name}-%{version}.tar.lzma
 Source1: %{name}-icons.tar.bz2
 URL: https://dockapps.org/file.php/id/58
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(xext)
 BuildRequires: pkgconfig(xpm)
